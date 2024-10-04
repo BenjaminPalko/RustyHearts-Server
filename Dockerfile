@@ -10,7 +10,7 @@ ARG SERVER_NAME
 WORKDIR /usr/src/app
 
 # Install dependencies
-RUN apt-get update && apt-get install golang-go ripgrep xvfb -y
+RUN apt-get update && apt-get install golang-go xvfb -y
 
 # Start display for headless wine
 RUN Xvfb :0 -screen 0 1024x768x16 &
