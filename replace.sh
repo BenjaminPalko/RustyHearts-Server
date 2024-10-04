@@ -1,18 +1,23 @@
 #!/bin/bash
 
 echo "Setting up to replace server values"
+SQL_ADDRESS=$0
+SQL_ACCOUNT=$1
+SQL_PASSWORD=$2
+SERVER_PRIVATE_IP=$3
+SERVER_PUBLIC_IP=$4
+SERVER_NAME=$5
 
 echo "Replacing SQL_ADDRESS..."
-RUN sed -i "s/SERVER_PUBLIC_IP/${SERVER_PUBLIC_IP}/g" **/*.xml
-rg SQL_ADDRESS -g '**/*.xml'-g '**/*.xml' -r "$0"
+sed -i "s/SQL_ADDRESS/${SQL_ADDRESS}/g" **/*.xml
 echo "Replacing SQL_ACCOUNT..."
-rg SQL_ACCOUNT -g '**/*.xml' -r "$1"
+sed -i "s/SQL_ACCOUNT/${SQL_ACCOUNT}/g" **/*.xml
 echo "Replacing SQL_PASSWORD..."
-rg SQL_PASSWORD -g '**/*.xml' -r "$2"
+sed -i "s/SQL_PASSWORD/${SQL_PASSWORD}/g" **/*.xml
 echo "Replacing SERVER_PRIVATE_IP..."
-rg SERVER_PRIVATE_IP -g '**/*.xml' -r "$3"
+sed -i "s/SERVER_PRIVATE_IP/${SERVER_PRIVATE_IP}/g" **/*.xml
 echo "Replacing SERVER_PUBLIC_IP..."
-rg SERVER_PUBLIC_IP -g '**/*.xml' -r "$4"
+sed -i "s/SERVER_PUBLIC_IP/${SERVER_PUBLIC_IP}/g" **/*.xml
 echo "Replacing SERVER_NAME..."
-rg SERVER_NAME -g '**/*.xml' -r "$5"
+sed -i "s/SERVER_NAME/${SERVER_NAME}/g" **/*.xml
 echo "Done!"
